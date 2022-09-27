@@ -1,4 +1,3 @@
-_G.PRED = 0.00100
 if getgenv().ValiantAimHacks then return getgenv().ValiantAimHacks end
 
 -- // Services
@@ -292,18 +291,3 @@ end)
 -- // Revert Metatable readonly status
 setreadonly(mt, true)
 ]]
-
-local ping 
-local Value 
-local pingValue 
-local PingNumber 
-
-game:GetService("RunService").RenderStepped:Connect(function()
-    
-     ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
-     Value = tostring(ping)
-     pingValue = Value:split(" ")
-     PingNumber = pingValue[1]
-    
-     DaHoodSettings.Prediction = PingNumber / 90000 + _G.PRED
-end)
